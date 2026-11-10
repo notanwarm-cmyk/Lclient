@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "lclient",
+  "version": "${version}",
+  "name": "L Client",
+  "description": "Clean PvP client: performance, HUD, keystrokes.",
+  "environment": "client",
+  "entrypoints": { "client": ["dev.lclient.LClient"] },
+  "depends": { "fabricloader": ">=0.19.1", "minecraft": ">=26.2-", "java": ">=25", "fabric-api": "*" }
+}
