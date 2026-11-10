@@ -1,0 +1,21 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.15.5'
+}
+version = project.mod_version
+group = "dev.lclient"
+base { archivesName = "L-Client" }
+
+repositories { mavenCentral() }
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+tasks.withType(JavaCompile).configureEach { it.options.release = 25 }
+java { withSourcesJar() }
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") { expand "version": project.version }
+}
